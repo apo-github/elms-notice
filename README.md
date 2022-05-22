@@ -1,6 +1,6 @@
 # ELMS-notice
 
-ELMS-notice は ELMS の新着メッセージの到着を LINE に通知してくれる BOT です。
+ELMS-notice は ELMS の新着メッセージの到着を LINE に通知してくれる BOT です．
 本家 ELMS-notice に個人的な変更を加えたものです．https://github.com/karintou8710/elms-notice
 
 ## 使い方
