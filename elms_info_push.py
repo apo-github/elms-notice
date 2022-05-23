@@ -38,7 +38,7 @@ def main():
         elms.get_time_list() #時間一覧を取得(スクレイピング)
         elms.get_title_list() #タイトル一覧を取得(スクレイピング)
         num_of_post = elms.count_message() # 10分以内に投稿された数を返す
-        title_list = elms.get_message_title_list() #10分以内に投稿されたメッセージを成形したものを取得
+        # title_list = elms.get_message_title_list() #10分以内に投稿されたメッセージを成形したものを取得
         elms.close_browser()
 
     except Exception as e: #スクレイプ中に起きたエラーは全てここで受ける
