@@ -36,6 +36,7 @@ def main():
         elms.login()
         elms.choose_dropdown_list(2) #グループに関するお知らせのドロップダウンを選択
         elms.get_time_list() #時間一覧を取得
+        elms.get_title_list()
         num_of_post = elms.count_message() # 1時間以内に投稿された数を返す
         title_list = elms.get_title_within_interval_minutes()
         elms.close_browser()
