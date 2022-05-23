@@ -162,18 +162,9 @@ class ScrapeElms:
         for i in range(len(self.time_stamp_list)):
             if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
-
-        return count_num 
-
-    def get_title_within_interval_minutes(self):
-        count_num = 0 # 初期カウント数
-        cor_t = datetime.datetime.now() #現在時刻取得
-        for i in range(len(self.time_stamp_list)):
-            if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
-                count_num += 1
-                #メッセージを取得
+                #新着メッセージのみ残す
                 del self.title_list[i] #新着メッセージのみ残す
-                print(self.title_list)
-
-        return self.title_list
-
+                
+        print("計算後タイトル一覧",self.title_list)
+        print("計算後",count_num)
+        return count_num
