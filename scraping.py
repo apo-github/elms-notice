@@ -159,12 +159,13 @@ class ScrapeElms:
         '''
         count_num = 0 # 初期カウント数
         cor_t = datetime.datetime.now() #現在時刻取得
+        print("取得時間",cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES))
         for i in range(len(self.time_stamp_list)):
             if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
                 #新着メッセージのみ残す
                 del self.title_list[i] #新着メッセージのみ残す
                 
-        print("計算後タイトル一覧",self.title_list)
+        # print("計算後タイトル一覧",self.title_list)
         print("計算後",count_num)
         return count_num
