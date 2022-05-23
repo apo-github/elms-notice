@@ -35,24 +35,19 @@ def main():
         elms = scraping.ScrapeElms(elms_id, elms_password)
         elms.login()
         elms.choose_dropdown_list(2) #グループに関するお知らせのドロップダウンを選択
-        elms.get_time_list() #時間一覧を取得
-        elms.get_title_list()
-        num_of_post = elms.count_message() # 1時間以内に投稿された数を返す
-        title_list = elms.title_list
+        elms.get_time_list() #時間一覧を取得(スクレイピング)
+        elms.get_title_list() #タイトル一覧を取得(スクレイピング)
+        num_of_post = elms.count_message() # 10分以内に投稿された数を返す
+        title_list = elms.get_message_title_list() #10分以内に投稿されたメッセージを成形したものを取得
         elms.close_browser()
 
     except Exception as e: #スクレイプ中に起きたエラーは全てここで受ける
-        error_message = "エラーが発生したようです．\n内容は以下です．\n---------{}\n---------".format(str(e))
+        error_message = "エラーが発生したようです．\n内容は以下です．\n---------\n{}\n---------".format(str(e))
         print(error_message)
         line_bot_api.push_message(user_id, messages=TextSendMessage(text=error_message))
         return
 
-    ## LINEにpushする処理
-    # メッセージを作る処理を追加する
-    # error_messageが空でない場合はerrorメッセージをLINE側に送ってほしいです．
-    # (空で初期化しているので送るテキストに連結して貰うだけでもいいかもです)
-
-    
+    ## LINEにpushする処理   
     if num_of_post > 0:
         print("メッセージが届いたよ!")
         messages = TextSendMessage(text=f"ELMSに{num_of_post}件の新着メッセージがあります．\n---------\n {title_list} \n\n https://www.hokudai.ac.jp/gakusei/instruction-info/elms/")

@@ -161,15 +161,20 @@ class ScrapeElms:
         nine_hours = datetime.timedelta(hours=9)
         count_num = 0 # 初期カウント数
         cor_t = datetime.datetime.now() + nine_hours #現在時刻取得(タイムゾーンを日本とする)
-        print("現在時刻",cor_t)
-        print("取得時間",cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES))
         for i in range(len(self.time_stamp_list)):
             if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
-                #新着メッセージのみ残す
-                del self.title_list[i] #新着メッセージのみ残す
+                del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
                 
-        # print("計算後タイトル一覧",self.title_list)
-        print("時間一覧",self.time_stamp_list)
-        print("計算後",count_num)
+        print("計算後タイトル一覧",self.title_list)
+        # print("計算後",count_num)
         return count_num
+
+    def get_message_title_list(self):
+        title_list = ""
+        for i in self.title_list:
+            title_list += self.title_list[i]
+            title_list += "\n\n"
+
+        return title_list
+
