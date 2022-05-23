@@ -171,13 +171,14 @@ class ScrapeElms:
         return count_num
 
     def get_message_title_list(self):
-        title_list = ""
-        if len(self.time_stamp_list) > 0: #指定時間内に新着情報があれば
-            for i in self.title_list:
-                title_list += self.title_list[i]
-                title_list += "\n\n"
+        message_text = ""
+        list_len = len(self.time_stamp_list)
+        if list_len > 0: #指定時間内に新着情報があれば
+            for i in range(list_len):
+                message_text += self.title_list[i]
+                message_text += "\n\n"
         else:
             pass
 
-        return title_list
+        return message_text
 
