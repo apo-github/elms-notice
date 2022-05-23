@@ -3,10 +3,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-import datetime
 from selenium.webdriver.common.keys import Keys
-
+import datetime
 import settings
+
+
 
 
 class ScrapeElms:
@@ -158,7 +159,8 @@ class ScrapeElms:
             1時間以内に投稿されたお知らせの数
         '''
         count_num = 0 # 初期カウント数
-        cor_t = datetime.datetime.now() #現在時刻取得
+        cor_t = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))) #現在時刻取得(タイムゾーンを日本とする)
+        print("現在時刻",cor_t)
         print("取得時間",cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES))
         for i in range(len(self.time_stamp_list)):
             if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
@@ -167,5 +169,6 @@ class ScrapeElms:
                 del self.title_list[i] #新着メッセージのみ残す
                 
         # print("計算後タイトル一覧",self.title_list)
+        print("時間一覧",self.time_stamp_list)
         print("計算後",count_num)
         return count_num
