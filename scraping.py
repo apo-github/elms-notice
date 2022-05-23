@@ -173,6 +173,7 @@ class ScrapeElms:
                 count_num += 1
                 #メッセージを取得
                 del self.title_list[i] #新着メッセージのみ残す
+                print(self.title_list)
 
         return self.title_list
 
