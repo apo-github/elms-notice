@@ -158,8 +158,9 @@ class ScrapeElms:
         count_num : int
             1時間以内に投稿されたお知らせの数
         '''
+        nine_hours = datetime.timedelta(hours=9)
         count_num = 0 # 初期カウント数
-        cor_t = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))) #現在時刻取得(タイムゾーンを日本とする)
+        cor_t = datetime.datetime.now() + nine_hours #現在時刻取得(タイムゾーンを日本とする)
         print("現在時刻",cor_t)
         print("取得時間",cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES))
         for i in range(len(self.time_stamp_list)):
