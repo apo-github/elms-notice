@@ -168,8 +168,8 @@ class ScrapeElms:
     def get_title_within_interval_minutes(self):
         count_num = 0 # 初期カウント数
         cor_t = datetime.datetime.now() #現在時刻取得
-        for i in range(len(self.time_stamp_list)):
-            if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
+        for i in range(len(self.title_list)):
+            if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.title_list[i] :  #一時間前と大小比較
                 count_num += 1
                 #メッセージを取得
                 del self.title_list[i] #新着メッセージのみ残す
