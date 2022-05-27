@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.keys import Keys
+from webdriver_manager.chrome import ChromeDriverManager
 import datetime
 import settings
 
@@ -50,7 +51,7 @@ class ScrapeElms:
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
         self.driver = webdriver.Chrome(options=options)
-        # self.driver = webdriver.Chrome(ChromeDriverManager().install()) # start driver with gui mode
+        self.driver = webdriver.Chrome(ChromeDriverManager().install()) # start driver with gui mode
 
     def page_wait(self, class_name):
         '''ページのロードを待つ関数
