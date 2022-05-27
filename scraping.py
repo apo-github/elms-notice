@@ -52,8 +52,7 @@ class ScrapeElms:
         # start up driver with headless mode
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
-        self.driver = webdriver.Chrome(options=options)
-        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))# start driver with gui mode
+        self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)# start driver with gui mode
         # self.driver = webdriver.Chrome(ChromeDriverManager().install()) #selenium ver3
 
     def page_wait(self, class_name):
