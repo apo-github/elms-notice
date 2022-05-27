@@ -173,7 +173,7 @@ class ScrapeElms:
         print("計算後",count_num)
         return count_num
 
-    def get_message_title_list(self):
+    def message_title_list(self):
         message_text = ""
         list_len = len(self.time_stamp_list)
         if list_len > 0: #指定時間内に新着情報があれば
