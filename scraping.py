@@ -168,8 +168,11 @@ class ScrapeElms:
         for i in range(len(self.time_stamp_list)):
             if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
+            else:
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
-                
+
+        print(self.time_stamp_list)
+        print(self.title_list)                    
         print("計算後",count_num)
         return count_num
 
