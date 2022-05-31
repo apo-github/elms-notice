@@ -147,7 +147,7 @@ class ScrapeElms:
             title = self.driver.find_element_by_xpath(xpath)  # find xpath
             inner_text = title.text  # get text in tag
             self.title_list.append(inner_text)  # add list
-            print("取得タイトル",self.title_list)
+            # print("取得タイトル",self.title_list)
 
         return self.title_list
 
@@ -172,8 +172,8 @@ class ScrapeElms:
             else:
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
 
-        print(self.time_stamp_list)
-        print(self.title_list)                    
+        print("計算後タイムスタンプ\n",self.time_stamp_list)
+        print("計算後タイトル\n",self.title_list)                    
         print("計算後",count_num)
         return count_num
 
