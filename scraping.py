@@ -170,6 +170,8 @@ class ScrapeElms:
             if  cor_t - datetime.timedelta(minutes=180) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
             else:
+                print("タイトルリスト長さ\n",len(self.title_list))
+                print(i)
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
 
         print("計算後タイムスタンプ\n",self.time_stamp_list)
