@@ -171,7 +171,9 @@ class ScrapeElms:
                 count_num += 1
             else:
                 print("タイムスタンプ長さ ",len(self.time_stamp_list))
+                print(self.time_stamp_list)
                 print("タイトルリスト長さ ",len(self.title_list))
+                print(self.title_list)
                 print(i)
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
 
