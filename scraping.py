@@ -184,7 +184,7 @@ class ScrapeElms:
 
     def message_title_list(self):
         message_text = ""
-        list_len = len(self.time_stamp_list)
+        list_len = len(self.title_list)
         if list_len > 0: #指定時間内に新着情報があれば
             for i in range(list_len):
                 message_text += self.title_list[i]
