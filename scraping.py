@@ -166,19 +166,11 @@ class ScrapeElms:
         count_num = 0 # 初期カウント数
         cor_t = datetime.datetime.now() + nine_hours #現在時刻取得(タイムゾーンを日本とする)
         for i in reversed(range(len(self.time_stamp_list))):
-            # if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
-            if  cor_t - datetime.timedelta(minutes=180) < self.time_stamp_list[i] :  #一時間前と大小比較
+            if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
             else:
-                print("タイムスタンプ長さ ",len(self.time_stamp_list))
-                print(self.time_stamp_list)
-                print("タイトルリスト長さ ",len(self.title_list))
-                print(self.title_list)
-                print(i)
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
-
-        print("計算後タイムスタンプ\n",self.time_stamp_list)
-        print("計算後タイトル\n",self.title_list)                    
+                  
         print("計算後",count_num)
         return count_num
 
