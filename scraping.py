@@ -170,7 +170,9 @@ class ScrapeElms:
                 count_num += 1
             else:
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
-                  
+            ##log用
+            print(self.time_stamp_list)
+            print(self.title_list)
         print("計算後",count_num)
         return count_num
 
