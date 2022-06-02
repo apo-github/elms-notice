@@ -3,5 +3,6 @@ import settings
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 scheduler = BlockingScheduler()
-scheduler.add_job(main, 'interval', minutes=settings.INTERVAL_MINUTES)
+# scheduler.add_job(main, 'interval', minutes=settings.INTERVAL_MINUTES)
+scheduler.add_job(main, 'interval', seconds=settings.INTERVAL_MINUTES)
 scheduler.start()

@@ -171,6 +171,7 @@ class ScrapeElms:
             else:
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
             ##log用
+            print("時刻：",cor_t)
             print(self.time_stamp_list)
             print(self.title_list)
         print("計算後",count_num)
