@@ -167,7 +167,7 @@ class ScrapeElms:
         cor_t = datetime.datetime.now() + nine_hours #現在時刻取得(タイムゾーンを日本とする)
         for i in reversed(range(len(self.time_stamp_list))):
             # if  cor_t - datetime.timedelta(minutes=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
-            if  cor_t - datetime.timedelta(seconds=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
+            if  cor_t - datetime.timedelta(hours=settings.INTERVAL_MINUTES) < self.time_stamp_list[i] :  #一時間前と大小比較
                 count_num += 1
             else:
                 del self.title_list[i] #新着メッセージのみ残す (新着メッセージも受け取る場合コメントアウトを外す)
